@@ -1,0 +1,1824 @@
+{
+  "injection": {
+    "id": "injection",
+    "file": "Injection_Daily Report.xlsx",
+    "sheet": "10.4",
+    "sheetPath": "xl/worksheets/sheet1.xml",
+    "startRow": 4,
+    "columns": [
+      {
+        "key": "A",
+        "label": "N° de machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "B",
+        "label": "Tonnage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "C",
+        "label": "Équipe",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "D",
+        "label": "N° de projet",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "E",
+        "label": "Code produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "F",
+        "label": "Désignation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "G",
+        "label": "Couleur",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "H",
+        "label": "N° d'ordre de fabrication",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "I",
+        "label": "Quantité commandée",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "J",
+        "label": "Temps engagé (min)",
+        "formula": "12*60",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "K",
+        "label": "Repas",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "L",
+        "label": "Pause",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "M",
+        "label": "5S",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "N",
+        "label": "Coupure d'électricité (d'eau)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "O",
+        "label": "Formation des nouveaux",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "P",
+        "label": "Maintenance TPM",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Q",
+        "label": "Arrêt planifié",
+        "formula": "SUM(K4:P5)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "R",
+        "label": "Temps de charge",
+        "formula": "J4-SUM(K4:P4)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "S",
+        "label": "Anomalie du moule",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "T",
+        "label": "Anomalie de l'équipement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "U",
+        "label": "Anomalie produit, mise au point du procédé",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "V",
+        "label": "Changement de moule Réglage machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "W",
+        "label": "Première pièce, validation R&D",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "X",
+        "label": "Essai de moule, échantillonnage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Y",
+        "label": "Essai matière Attente matière Réglage couleur",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Z",
+        "label": "Attente de main-d'œuvre",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AA",
+        "label": "Arrêt faute d'ordre de fabrication",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AB",
+        "label": "Arrêt pour panne",
+        "formula": "SUM(S4:AA5)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AC",
+        "label": "Temps de fonctionnement",
+        "formula": "R4-SUM(S4:AA4)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AD",
+        "label": "Cycle standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AE",
+        "label": "Cycle réel (s)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AF",
+        "label": "Nb d'empreintes standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AG",
+        "label": "Nb d'empreintes réel",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AH",
+        "label": "Capacité standard",
+        "formula": "(3600/AD4*AM4)*AF4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AI",
+        "label": "Effectif",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AJ",
+        "label": "Production journalière (pcs)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AK",
+        "label": "Quantité cumulée (pcs)",
+        "formula": "AJ4+AJ5+15900",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AL",
+        "label": "Heures gagnées",
+        "formula": "AJ4*AD4/3600/AF4*AI4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AM",
+        "label": "Heures de présence",
+        "formula": "AC4/60",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AN",
+        "label": "Heures de production",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AO",
+        "label": "Heures de perte réelles",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AP",
+        "label": "Heures-homme cumulées (h)",
+        "formula": "3+12+20+21.5+21.5+21.5+17.5",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AQ",
+        "label": "Défauts",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AR",
+        "label": "Quantité de défauts",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AS",
+        "label": "Total cumulé des défauts",
+        "formula": "AR4+AR5+2888",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AT",
+        "label": "Taux de réalisation de la capacité journalière",
+        "formula": "AJ4/AH4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AU",
+        "label": "Taux de défauts standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AV",
+        "label": "Taux de défauts cumulé",
+        "formula": "AS4/(AK4+AS4)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AW",
+        "label": "Productivité",
+        "formula": "AL4/AM4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AX",
+        "label": "Taux d'utilisation des équipements",
+        "formula": "R4/J4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AY",
+        "label": "Productivité totale effective (FEET)",
+        "formula": "AX4*BC4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AZ",
+        "label": "Taux de disponibilité",
+        "formula": "AC4/R4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BA",
+        "label": "Taux de performance",
+        "formula": "AJ4/AH4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BB",
+        "label": "Taux de qualité",
+        "formula": "AJ4/(AJ4+AR4)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BC",
+        "label": "TRS (OEE)",
+        "formula": "AZ4*BA4*BB4",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BD",
+        "label": "Analyse des causes de l'allongement du cycle (réponse de l'atelier)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      }
+    ],
+    "sheets": [
+      "10.4"
+    ],
+    "warnings": {
+      "brokenReferences": 3,
+      "largeFormattedRange": false
+    }
+  },
+  "metalisation": {
+    "id": "metalisation",
+    "file": "Metalisation Daily Report.xlsx",
+    "sheet": "Sheet1",
+    "sheetPath": "xl/worksheets/sheet1.xml",
+    "startRow": 6,
+    "columns": [
+      {
+        "key": "A",
+        "label": "Date",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "B",
+        "label": "Machine (nom / n°)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "C",
+        "label": "Équipe",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "D",
+        "label": "N° d'ordre de fabrication (OF)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "E",
+        "label": "N° de PO client",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "F",
+        "label": "Qté commandée /PCS",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "G",
+        "label": "Produit /Procédé",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "H",
+        "label": "N° de pièce",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "I",
+        "label": "Statut produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "J",
+        "label": "Effectif standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "K",
+        "label": "Capacité standard PCS/jour",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "L",
+        "label": "Production planifiée",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "M",
+        "label": "Effectif réel",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "N",
+        "label": "Production réelle /PCS",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "O",
+        "label": "Défauts matière entrante",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "P",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Q",
+        "label": "Qté défectueuse /PCS",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "R",
+        "label": "Production cumulée /PCS",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "S",
+        "label": "Anomalie matière entrante Défauts triés + remarques （PCS) *Fiche d'anomalie",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "T",
+        "label": "Conso. unitaire standard base (g)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "U",
+        "label": "Conso. unitaire standard finition (g)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "V",
+        "label": "Conso. réelle agent de traitement /kg",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "W",
+        "label": "Conso. réelle couche de base /kg",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "X",
+        "label": "Conso. réelle couche de finition /kg",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Y",
+        "label": "Conso. unitaire réelle agent de traitement /g",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Z",
+        "label": "Conso. unitaire réelle base /g",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AA",
+        "label": "Conso. unitaire réelle finition /g",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AB",
+        "label": "Temps de production (h)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AC",
+        "label": "Temps de charge",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AD",
+        "label": "Réglage anormal",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AE",
+        "label": "Heures – réglage anormal",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AF",
+        "label": "Panne machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AG",
+        "label": "Heures – panne machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AH",
+        "label": "Changement de ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AI",
+        "label": "Heures – changement de ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AJ",
+        "label": "Matière entrante",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AK",
+        "label": "Heures – matière entrante",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AL",
+        "label": "Échantillonnage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AM",
+        "label": "Heures – échantillonnage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AN",
+        "label": "Retravail",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AO",
+        "label": "Heures – retravail",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AP",
+        "label": "Temps d'arrêt (h)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AQ",
+        "label": "Temps de fonctionnement (h)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AR",
+        "label": "Taux de disponibilité %",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AS",
+        "label": "Taux de performance %",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AT",
+        "label": "Taux de bonnes pièces %",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AU",
+        "label": "TRS (OEE) %",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AV",
+        "label": "Remarques",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      }
+    ],
+    "sheets": [
+      "Sheet1"
+    ],
+    "warnings": {
+      "brokenReferences": 1,
+      "largeFormattedRange": false
+    }
+  },
+  "serigraphie": {
+    "id": "serigraphie",
+    "file": "Serigraphie Daily Report.xlsx",
+    "sheet": "总",
+    "sheetPath": "xl/worksheets/sheet1.xml",
+    "startRow": 2,
+    "columns": [
+      {
+        "key": "A",
+        "label": "Date de production",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "B",
+        "label": "Équipe",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "C",
+        "label": "N° de machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "D",
+        "label": "Nom de la machine          Ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "E",
+        "label": "N° de pièce",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "F",
+        "label": "Réf. produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "G",
+        "label": "Désignation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "H",
+        "label": "Couleur",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "I",
+        "label": "Opération",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "J",
+        "label": "Service responsable",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "K",
+        "label": "Statut produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "L",
+        "label": "N° de commande",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "M",
+        "label": "Qté commandée",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "N",
+        "label": "Capacité standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "O",
+        "label": "Capacité planifiée",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "P",
+        "label": "Production réelle",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Q",
+        "label": "Production cumulée (OF)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "R",
+        "label": "Effectif standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "S",
+        "label": "Effectif réel",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "T",
+        "label": "Temps de production",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "U",
+        "label": "Temps perdu/min",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "V",
+        "label": "min/pièce/pers.",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "W",
+        "label": "Temps gagné/min",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "X",
+        "label": "Dorure à chaud",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Y",
+        "label": "Impression",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Z",
+        "label": "Rayures",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AA",
+        "label": "Manque de matière",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AB",
+        "label": "Déformation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AC",
+        "label": "Particules",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AD",
+        "label": "Piqûres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AE",
+        "label": "Oxydation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AF",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AG",
+        "label": "Particules",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AH",
+        "label": "Écrasement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AI",
+        "label": "Rayures",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AJ",
+        "label": "Réglage machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AK",
+        "label": "Rupture",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AL",
+        "label": "Couple",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AM",
+        "label": "Oxydation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AN",
+        "label": "Impression",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AO",
+        "label": "Fibres de coton",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AP",
+        "label": "Décalage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AQ",
+        "label": "Points noirs",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AR",
+        "label": "Dénivelé",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AS",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AT",
+        "label": "Qté non conforme",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AU",
+        "label": "Temps engagé (min)",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AV",
+        "label": "Repas",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AW",
+        "label": "Pause",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AX",
+        "label": "5S",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AY",
+        "label": "Formation nouveaux",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AZ",
+        "label": "Maintenance TPM",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BA",
+        "label": "Temps d'arrêt planifié",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BB",
+        "label": "Temps de charge",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BC",
+        "label": "H",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BD",
+        "label": "Réparation panne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BE",
+        "label": "Changement de ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BF",
+        "label": "Approvisionnement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BG",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BH",
+        "label": "Temps d'arrêt panne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BI",
+        "label": "Temps de fonctionnement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BJ",
+        "label": "Taux de réalisation capacité journalière",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BK",
+        "label": "Productivité",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BL",
+        "label": "Taux d'utilisation équipement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BM",
+        "label": "TEEP",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BN",
+        "label": "Taux de disponibilité",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BO",
+        "label": "Taux de performance",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BP",
+        "label": "Taux de qualité",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BQ",
+        "label": "TRS",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BR",
+        "label": "Remarques",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BS",
+        "label": "Chef de ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BT",
+        "label": "Technicien",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BU",
+        "label": "Qualité",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      }
+    ],
+    "sheets": [
+      "总",
+      "Sheet1"
+    ],
+    "warnings": {
+      "brokenReferences": 0,
+      "largeFormattedRange": true
+    }
+  },
+  "assemblage": {
+    "id": "assemblage",
+    "file": "Assembly_Daily report.xlsx",
+    "sheet": "Total",
+    "sheetPath": "xl/worksheets/sheet2.xml",
+    "startRow": 2,
+    "columns": [
+      {
+        "key": "A",
+        "label": "Date de production",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "B",
+        "label": "Équipe",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "C",
+        "label": "N° de machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "D",
+        "label": "Nom de la machine Ligne",
+        "formula": "VLOOKUP(C2,[2]机台编号!$A$1:$C$120,3,0)",
+        "calculated": false,
+        "overrideAllowed": true
+      },
+      {
+        "key": "E",
+        "label": "N° d'article",
+        "formula": "VLOOKUP(L2,[3]Sheet1!$B:$N,13,0)",
+        "calculated": false,
+        "overrideAllowed": true
+      },
+      {
+        "key": "F",
+        "label": "Réf. produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "G",
+        "label": "Désignation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "H",
+        "label": "Couleur",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "I",
+        "label": "Opération",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "J",
+        "label": "Entité responsable",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "K",
+        "label": "État du produit",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "L",
+        "label": "N° de commande",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "M",
+        "label": "Quantité commandée",
+        "formula": "VLOOKUP(L2,[3]Sheet1!$B:$Q,16,0)",
+        "calculated": false,
+        "overrideAllowed": true
+      },
+      {
+        "key": "N",
+        "label": "Capacité standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "O",
+        "label": "Capacité planifiée",
+        "formula": "N2/10.5/R2*(BB2/60)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "P",
+        "label": "Production réelle",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Q",
+        "label": "Production cumulée de l'OF",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "R",
+        "label": "Effectif standard",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "S",
+        "label": "Effectif réel",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "T",
+        "label": "Temps de production",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "U",
+        "label": "Temps perdu (min)",
+        "formula": "(BB2/V2-P2)*V2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "V",
+        "label": "Min / pièce / pers.",
+        "formula": "R2*10.5*60/N2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "W",
+        "label": "Temps gagné (min)",
+        "formula": "P2*V2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "X",
+        "label": "Dorure à chaud",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Y",
+        "label": "Impression",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "Z",
+        "label": "Rayure",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AA",
+        "label": "Manque de matière",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AB",
+        "label": "Déformation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AC",
+        "label": "Particules",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AD",
+        "label": "Piqûres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AE",
+        "label": "Oxydation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AF",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AG",
+        "label": "Particules",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AH",
+        "label": "Écrasement",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AI",
+        "label": "Rayure",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AJ",
+        "label": "Réglage machine",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AK",
+        "label": "Cassure",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AL",
+        "label": "Couple de serrage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AM",
+        "label": "Oxydation",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AN",
+        "label": "Impression",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AO",
+        "label": "Embout floqué",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AP",
+        "label": "Décalage",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AQ",
+        "label": "Points noirs",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AR",
+        "label": "Écart de hauteur",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AS",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AT",
+        "label": "Quantité de défauts",
+        "formula": "SUM(X2:AS2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AU",
+        "label": "Temps engagé (min)",
+        "formula": "T2*60*S2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AV",
+        "label": "Repas",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AW",
+        "label": "Pause",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AX",
+        "label": "5S",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AY",
+        "label": "Formation des nouveaux",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "AZ",
+        "label": "Maintenance TPM",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BA",
+        "label": "Arrêt planifié",
+        "formula": "SUM(AV2:AZ2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BB",
+        "label": "Temps de charge",
+        "formula": "(AU2-SUM(AV2:AZ2)*S2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BC",
+        "label": "H",
+        "formula": "BB2/60",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BD",
+        "label": "Réparation de pannes",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BE",
+        "label": "Changement de série",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BF",
+        "label": "Matière entrante",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BG",
+        "label": "Autres",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BH",
+        "label": "Arrêt pour panne",
+        "formula": "SUM(BD2:BG2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BI",
+        "label": "Temps de fonctionnement",
+        "formula": "BB2-SUM(BD2:BG2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BJ",
+        "label": "Taux de réalisation de la capacité journalière",
+        "formula": "P2/O2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BK",
+        "label": "Productivité",
+        "formula": "W2/BB2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BL",
+        "label": "Taux d'utilisation des équipements",
+        "formula": "BB2/AU2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BM",
+        "label": "Productivité totale effective",
+        "formula": "BL2*BQ2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BN",
+        "label": "Taux de disponibilité",
+        "formula": "BI2/BB2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BO",
+        "label": "Taux de performance",
+        "formula": "P2/O2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BP",
+        "label": "Taux de qualité",
+        "formula": "P2/(P2+AT2)",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BQ",
+        "label": "TRS (OEE)",
+        "formula": "BN2*BO2*BP2",
+        "calculated": true,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BR",
+        "label": "Remarques",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BS",
+        "label": "Chef de ligne",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BT",
+        "label": "Technicien",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      },
+      {
+        "key": "BU",
+        "label": "Qualité",
+        "formula": null,
+        "calculated": false,
+        "overrideAllowed": false
+      }
+    ],
+    "sheets": [
+      "Sheet1",
+      "Total",
+      "Hebdo moulage A1",
+      "Hebdo impr-dorure A1",
+      "Hebdo moulage A0",
+      "Hebdo impr-dorure A0",
+      "Hebdo assemblage A0",
+      "Hebdo assemblage A1"
+    ],
+    "warnings": {
+      "brokenReferences": 345,
+      "largeFormattedRange": true
+    }
+  }
+}

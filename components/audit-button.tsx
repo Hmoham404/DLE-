@@ -1,0 +1,10 @@
+'use client';
+import {useState} from 'react';
+import {History} from 'lucide-react';
+import type {Report} from '@/lib/domain';
+import {Modal,Empty,Chip} from './ui-parts';
+export function AuditButton({id}:{id:string}){
+ const [open,setOpen]=useState(false),[loading,setLoading]=useState(false),[error,setError]=useState(''),[versions,setVersions]=useState<{at:string;actor:string;report:Report}[]>([]);
+ const show=async()=>{setOpen(true);setLoading(true);setError('');try{if(id.startsWith('demo'))throw new Error('La démonstration ne conserve pas de versions de production.');const r=await fetch('/api/audit?id='+encodeURIComponent(id));const b=await r.json() as any;if(!r.ok)throw new Error(b.error==='UNAUTHORIZED'?'Connectez-vous pour consulter les versions.':b.error);setVersions(b.versions);}catch(e){setError((e as Error).message);}setLoading(false);};
+ return <><button className="text-btn audit-btn" onClick={show}><History size={13}/>Versions</button>{open&&<Modal title="Historique des modifications" onClose={()=>setOpen(false)}>{loading?<p className="muted">Chargement des versions…</p>:error?<p className="muted">{error}</p>:versions.length?<div className="audit-versions">{versions.map((v,i)=>{const prev=versions[i+1]?.report.cells;const changed=Object.entries(v.report.cells).filter(([key,value])=>!prev||prev[key]!==value);return <details key={v.at} open={i===0}><summary><strong>{new Date(v.at).toLocaleString('fr-FR')}</strong><span>Espace {v.actor==='entry'?'saisie':'réunion'}</span><Chip color={v.report.status==='validated'?'green':'orange'}>{v.report.status==='validated'?'Validé':'Brouillon'}</Chip></summary><div className="audit-values">{changed.map(([key,value])=><div key={key}><code>{key}</code>{prev&&<del>{String(prev[key]??'—')}</del>}<span>{String(value)}</span></div>)}{!changed.length&&<p>Statut ou objectif de planning modifié.</p>}</div></details>;})}<p className="muted audit-note">100 dernières versions au maximum. Les codes partagés identifient un espace, pas une personne.</p></div>:<Empty title="Pas encore de version" detail="Les corrections enregistrées apparaîtront ici."/>}</Modal>}</>;
+}
