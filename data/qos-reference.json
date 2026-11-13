@@ -1,0 +1,179 @@
+{
+  "format": "myc-qos-reference-v1",
+  "source": "https://qos-trs.vercel.app/",
+  "retrievedAt": "2026-11-05T07:43:08.031Z",
+  "status": "prepared-not-imported",
+  "presses": [
+    {
+      "sourceId": "152e7fa1-9403-5995-83fe-0ff13d8ba717",
+      "name": "D230.2",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "21335e19-3099-5326-934c-dcb80b418ab4",
+      "name": "D230.3",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "2fa18b59-9e49-59c2-8a1b-958f91737f4e",
+      "name": "F150.2",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "3dba2196-49c0-5a34-9f4d-544ac0718d85",
+      "name": "D280.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "5145581f-0d1e-5b8c-a2fd-83951798b131",
+      "name": "D140.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "5759b429-1c6f-521a-af1a-cfddef42eff7",
+      "name": "D280.4",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "59a0a614-23e7-5a19-a91e-d2cb764b7df9",
+      "name": "D230.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "721ab616-54a3-5d58-ac98-109c9fe9c7bb",
+      "name": "D180.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "7a0478f2-6c81-524e-897e-6e329ed7eb64",
+      "name": "F220.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "9add1809-20ed-546f-8182-3b60c6df5c55",
+      "name": "D280.3",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "a4f9ff84-22ed-5937-943b-12e84ac2f0a7",
+      "name": "F220.4",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "cad0eb49-efcf-55dc-a206-55b31ae6cd5e",
+      "name": "D230.4",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "da4703e0-4648-5edf-97ee-2bafd7a1533b",
+      "name": "F220.2",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "f043b4b1-f4a7-50a9-9c25-d21c9879af84",
+      "name": "F150.1",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "f291b576-d2c4-5e39-b058-174e1fbdc280",
+      "name": "F220.3",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    },
+    {
+      "sourceId": "f3e91898-a995-56eb-82ae-a423b2aeb7ec",
+      "name": "D280.2",
+      "active": true,
+      "localMachineId": null,
+      "mappingStatus": "needs-confirmation"
+    }
+  ],
+  "articles": [
+    {
+      "sourceId": "900213cc-3aa9-5185-ac38-aef522eb1c57",
+      "code": "2.1.30171",
+      "name": "Cover KIKO",
+      "active": true,
+      "cavities": 8,
+      "moldCycleSeconds": 39,
+      "cycleSecondsPerPiece": 4.875,
+      "standardSecondsPerPiece": 4.875,
+      "localToolingId": null,
+      "workshopDefaults": {
+        "idealCycleSeconds": 39,
+        "cavities": 8
+      }
+    },
+    {
+      "sourceId": "c2f8d265-4617-5ba3-a40e-bf7259bcbdc7",
+      "code": "2.1.30172",
+      "name": "Base KIKO",
+      "active": true,
+      "cavities": 8,
+      "moldCycleSeconds": 38,
+      "cycleSecondsPerPiece": 4.75,
+      "standardSecondsPerPiece": 4.75,
+      "localToolingId": null,
+      "workshopDefaults": {
+        "idealCycleSeconds": 38,
+        "cavities": 8
+      }
+    },
+    {
+      "sourceId": "ceb9b245-6c20-5875-9835-e230f1d8a8ad",
+      "code": "2.1.30173",
+      "name": "Insert KIKO",
+      "active": true,
+      "cavities": 8,
+      "moldCycleSeconds": 30,
+      "cycleSecondsPerPiece": 3.75,
+      "standardSecondsPerPiece": 3.75,
+      "localToolingId": null,
+      "workshopDefaults": {
+        "idealCycleSeconds": 30,
+        "cavities": 8
+      }
+    }
+  ],
+  "shiftMapping": {
+    "Matin": "Équipe de jour",
+    "Après-Midi": "Équipe d’après-midi",
+    "Nuit": "Équipe de nuit"
+  },
+  "constraints": [
+    "Les noms des presses QOS ne sont pas reliés aux matricules MYC par une preuve commune (numéro de série ou table de correspondance).",
+    "Les articles produits ne sont pas des identifiants physiques de moules ; aucun lien aux outillages YZA/CYZ n’est établi.",
+    "active signifie référence disponible ; cela ne donne pas l’état courant de la presse.",
+    "Ne pas copier cycle_seconds dans idealCycleSeconds avec cavities=8 : la valeur source est déjà en secondes par pièce.",
+    "Les paramètres historiques cycle_seconds et standard_seconds doivent rester propres à chaque relevé."
+  ]
+}

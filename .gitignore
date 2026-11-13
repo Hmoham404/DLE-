@@ -49,3 +49,4 @@ yarn-error.log*
 /scripts/probe-storage.mjs
 /scripts/bootstrap-storage.mjs
 __pycache__/
+/.local-data/

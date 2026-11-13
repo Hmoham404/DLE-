@@ -4,7 +4,7 @@ import { ArrowUpRight, Box, Database, Factory, Layers3, LockKeyhole, Save, Searc
 import { departments, today, type Action, type FactoryState, type Machine, type Report } from '@/lib/domain';
 import { Btn, Chip, Empty, Modal, PanelTitle, number } from './ui-parts';
 import {AuditButton} from './audit-button';
-const statusNames = { running: 'En production', stopped: 'À l’arrêt', maintenance: 'Maintenance', idle: 'Disponible' };
+const statusNames = { running: 'En production', stopped: 'À l’arrêt', maintenance: 'Maintenance', idle: 'Disponible', unknown: 'État à renseigner' };
 type Notify = (s: string) => void;
 export function MachineModal({ existing, department, onClose, onSave, notify }: {
     existing: Machine | null;

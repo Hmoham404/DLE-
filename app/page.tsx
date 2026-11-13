@@ -1,2 +1,2 @@
-import FactoryApp from '@/components/factory-app';
-export default function Page() { return <FactoryApp />; }
+import LocalFactory from '@/components/local-factory';
+export default function Page(){return <LocalFactory/>;}

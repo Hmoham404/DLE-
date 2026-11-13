@@ -1,7 +1,7 @@
 import templateData from '@/data/templates.json';
 // Deliberately supports only local arithmetic and single-row SUM. No eval, external
 // workbook resolution, or historical hard-coded cumulative formula is executed.
-export function calculateCells(department: string, input: Record<string, string | number>) {
+export function calculateCells(department: string, input: Record<string, string | number>, formulaOverrides:Record<string,string|null>={}) {
     const template = (templateData as any)[department];
     if (!template)
         return {} as Record<string, number | null>;
@@ -31,8 +31,10 @@ export function calculateCells(department: string, input: Record<string, string 
         visiting.add(key);
         let value: number | null = null;
         try {
-            let f = col.formula || '';
-            if (/\[|#REF!|VLOOKUP|XLOOKUP/.test(f) || ['AK', 'AP', 'AS'].includes(key) && department === 'injection')
+            if(key in formulaOverrides && formulaOverrides[key]===null)throw 0;
+            let f = formulaOverrides[key] ?? col.formula ?? '';
+            const safeFormula=/^IFERROR\((.*),""\)$/.exec(f);if(safeFormula)f=safeFormula[1];
+            if (/\[|#REF!|VLOOKUP|XLOOKUP/.test(f) || ['AK', 'AP', 'AS'].includes(key) && department === 'injection' && !(key in formulaOverrides))
                 throw 0;
             f = f.replace(/SUM\(([A-Z]+)(\d+):([A-Z]+)(\d+)\)/g, (_: string, a: string, r1: string, b: string, r2: string) => {
                 if (+r1 !== base || +r2 !== base)

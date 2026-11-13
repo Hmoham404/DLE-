@@ -1,0 +1,12 @@
+.local-data
+.sites-runtime
+.wrangler
+.vinext
+.openai
+dist
+outputs
+.git
+services/__pycache__
+data/supabase-schema.json
+
+.env*

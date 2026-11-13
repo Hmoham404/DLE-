@@ -1,3 +1,4 @@
+import {prepareReportForExcel} from '@/lib/excel-autofill';
 import { authorize, loadState, failure, checkOrigin, runtime } from '@/lib/server';
 import { exportWorkbook, importWorkbook, sourceBytes } from '@/lib/excel';
 export async function GET(request: Request) {
@@ -10,11 +11,12 @@ export async function GET(request: Request) {
         if (p.get('blank') === '1')
             bytes = sourceBytes(department);
         else {
-            const reports = (await loadState()).reports.filter(r => r.department === department && r.date === date && r.status === 'validated').sort((a, b) => a.shift.localeCompare(b.shift) || a.machine_id.localeCompare(b.machine_id));
+            const state=await loadState();
+            const reports = state.reports.filter(r => r.department === department && r.date === date && r.status === 'validated').sort((a, b) => a.shift.localeCompare(b.shift) || a.machine_id.localeCompare(b.machine_id)).map(report=>prepareReportForExcel(report,state.machines.find(machine=>machine.id===report.machine_id),state.reports));
             if (!reports.length)
                 throw new Error('Aucun rapport validé pour cette date.');
             const config = runtime();
-            if (config.EXCEL_SERVICE_URL) {
+            if (config.EXCEL_SERVICE_URL && !reports.some(report=>report.workshop)) {
                 if (!config.EXCEL_SERVICE_TOKEN)
                     throw new Error('Le jeton du service Excel est manquant.');
                 const url = new URL('/export', config.EXCEL_SERVICE_URL);
@@ -26,7 +28,7 @@ export async function GET(request: Request) {
                 bytes = new Uint8Array(await r.arrayBuffer());
             }
             else
-                bytes = exportWorkbook(department, reports);
+                bytes = exportWorkbook(department, reports,{machines:state.machines,allReports:state.reports});
         }
         return new Response(bytes as BodyInit, { headers: { 'Content-Type': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'Content-Disposition': `attachment; filename="MYC_${department}_${date}.xlsx"`, 'Cache-Control': 'no-store' } });
     }

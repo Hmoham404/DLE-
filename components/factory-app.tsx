@@ -29,7 +29,7 @@ export type Template = {
     };
 };
 export const templates = templateData as Record<string, Template>;
-export const statusNames = { running: 'En production', stopped: 'À l’arrêt', maintenance: 'Maintenance', idle: 'Disponible' };
+export const statusNames = { running: 'En production', stopped: 'À l’arrêt', maintenance: 'Maintenance', idle: 'Disponible', unknown: 'État à renseigner' };
 const nav = [{ id: 'overview', label: 'Vue d’ensemble', icon: LayoutDashboard }, { id: 'production', label: 'Saisie de production', icon: ClipboardList }, { id: 'meeting', label: 'Salle de réunion', icon: MonitorPlay }, { id: 'plan', label: 'Plan de l’usine', icon: Map }, { id: 'history', label: 'Historique', icon: History }, { id: 'excel', label: 'Rapports Excel', icon: FileSpreadsheet }] as const;
 const titles = { overview: 'L’usine, en temps réel.', production: 'Chaque pièce compte.', meeting: 'Piloter. Décider. Avancer.', plan: 'Votre usine, à portée de vue.', history: 'La mémoire de votre production.', excel: 'Vos rapports. Votre format.', settings: 'Un pilotage à votre mesure.' };
 const subtitles = { overview: 'Une vision claire de vos ateliers, de la production aux décisions.', production: 'Vos rapports officiels, dans une grille de saisie connectée.', meeting: 'Les mêmes données. Une vision partagée. Des actions concrètes.', plan: 'Placez vos machines et retrouvez chaque atelier en un instant.', history: 'Retrouvez vos rapports et ouvrez les données d’origine.', excel: 'Les quatre modèles Excel officiels MYC, conservés à la source.', settings: 'Configurez vos seuils de performance et votre espace de travail.' };

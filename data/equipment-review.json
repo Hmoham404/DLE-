@@ -1,0 +1,89 @@
+{
+  "counts": {
+    "injection": {
+      "production": 16,
+      "support": 158,
+      "tooling": 30
+    },
+    "serigraphie": {
+      "production": 8,
+      "support": 11
+    },
+    "metalisation": {
+      "support": 16,
+      "line": 2
+    },
+    "assemblage": {
+      "support": 138,
+      "production": 1,
+      "line": 2
+    }
+  },
+  "issues": [
+    {
+      "file": "FICHIER_INVENTAIRE_MYC_ASSEMBLAGE_CODES_INTERNES 11-08-2026.xlsx",
+      "sheet": "Feuil1",
+      "row": 236,
+      "message": "Machine a coller du ruben adhéstif double face : quantité indiquée 2, 1 codes présents. Les codes présents sont conservés."
+    },
+    {
+      "file": "FICHIER_INVENTAIRE_MYC_ASSEMBLAGE_CODES_INTERNES 11-08-2026.xlsx",
+      "sheet": "Feuil1",
+      "row": 254,
+      "message": "Table  contrôle qualite taille moyenne : quantité indiquée 4, 0 codes présents. Les codes présents sont conservés."
+    },
+    {
+      "file": "FICHIER_INVENTAIRE_MYC_ASSEMBLAGE_CODES_INTERNES 11-08-2026.xlsx",
+      "sheet": "Feuil1",
+      "row": 459,
+      "message": "Convoyeur automatique  chaine peinture : quantité indiquée &, 1 codes présents. Les codes présents sont conservés."
+    },
+    {
+      "file": "FICHIER_INVENTAIRE_MYC_ASSEMBLAGE_CODES_INTERNES 11-08-2026.xlsx",
+      "sheet": "Feuil1",
+      "row": 463,
+      "message": "VACCUM à deux portes ( 4 CHAMBRES ) : quantité indiquée 2, 4 codes présents. Les codes présents sont conservés."
+    },
+    {
+      "file": "MYCTN-FM-DT-057 Atelier injection - parc machines-01.xlsx",
+      "sheet": "Feuil1",
+      "row": 135,
+      "message": "Code interne MYC-01-TR-007 répété aux lignes 135, 137. Équipements conservés séparément par ligne source."
+    },
+    {
+      "file": "MYCTN-FM-DT-057 Atelier injection - parc machines-01.xlsx",
+      "sheet": "Feuil1",
+      "row": 136,
+      "message": "Code interne MYC-01-TR-008 répété aux lignes 136, 138. Équipements conservés séparément par ligne source."
+    },
+    {
+      "file": "MYCTN-FM-DT-057 Atelier injection - parc machines-01.xlsx",
+      "sheet": "Feuil1",
+      "row": 50,
+      "message": "Numéro de série 202542181 répété aux lignes 50, 52, 53, 59. Équipements conservés séparément par ligne source."
+    },
+    {
+      "file": "MYCTN-FM-DT-057 Atelier injection - parc machines-01.xlsx",
+      "sheet": "Feuil1",
+      "row": 51,
+      "message": "Numéro de série 202542163 répété aux lignes 51, 54, 55, 56, 58. Équipements conservés séparément par ligne source."
+    },
+    {
+      "file": "MYCTN-FM-DT-057 Atelier injection - parc machines-01.xlsx",
+      "sheet": "Feuil1",
+      "row": 60,
+      "message": "Numéro de série 2025.4 répété aux lignes 60, 61, 62, 63, 64. Équipements conservés séparément par ligne source."
+    },
+    {
+      "file": "FICHIER_INVENTAIRE_MYC_ASSEMBLAGE_CODES_INTERNES 11-08-2026.xlsx",
+      "sheet": "Feuil1",
+      "row": 455,
+      "message": "Numéro de série HT-MYC-20250113-01 répété aux lignes 455, 461. Équipements conservés séparément par ligne source."
+    }
+  ],
+  "notes": [
+    "Feuil2 du parc injection reprend 10 presses sous des codes différents : Feuil1 est retenue.",
+    "Les chambres à vide PMT et les équipements d’assemblage restent à affecter à leurs lignes réelles.",
+    "Le rapport d’assemblage utilise B02 et B23 ; leur correspondance avec les codes internes est à confirmer."
+  ]
+}

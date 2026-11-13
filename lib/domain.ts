@@ -1,3 +1,6 @@
+import type {FiveSTag} from './five-s';
+import type {FiveSAudit} from './five-s-audits';
+import type {Workshop} from './workshop';
 export const departments = [
     { id: 'injection', name: 'Injection', code: 'INJ', color: '#54deca', description: 'Moulage & transformation' },
     { id: 'metalisation', name: 'Métallisation', code: 'MET', color: '#80acff', description: 'Revêtement & finition' },
@@ -8,11 +11,30 @@ export type Machine = {
     id: string;
     name: string;
     department: string;
-    status: 'running' | 'stopped' | 'maintenance' | 'idle';
+    status: 'running' | 'stopped' | 'maintenance' | 'idle' | 'unknown';
     x: number;
     y: number;
     reference?: string;
     line?: string;
+    assetKind?: 'production' | 'line' | 'support' | 'tooling';
+    inventory?: {
+        code: string;
+        manufacturer: string;
+        model: string;
+        serialNumber: string;
+        power: string;
+        weight: string;
+        voltage: string;
+        frequency: string;
+        manufacturedAt: string;
+        acquiredAt: string;
+        sourceFile: string;
+        sourceSheet: string;
+        sourceRow: number;
+        category?: string;
+        zone?: string;
+        quantity?: number;
+    };
 };
 export type Metrics = {
     planned: number;
@@ -39,6 +61,7 @@ export type Report = {
     metrics: Metrics;
     updated_at?: string;
     planningTarget?: number | null;
+    workshop?:Workshop;
 };
 export type Action = {
     id: string;
@@ -53,6 +76,9 @@ export type Action = {
     department: string;
 };
 export type FactoryState = {
+    products?: import('./product-standards').ProductStandard[];
+    fiveSTags?: FiveSTag[];
+    fiveSAudits?: FiveSAudit[];
     machines: Machine[];
     reports: Report[];
     actions: Action[];
@@ -79,7 +105,7 @@ export function summarize(reports: Report[]) {
         dle: completeDle && sum('laborMinutes') > 0 ? sum('earnedMinutes') / sum('laborMinutes') * 100 : null,
         downtime: load - run };
 }
-export const emptyState: FactoryState = { machines: [], reports: [], actions: [], settings: { green: 85, yellow: 65, metricApproved: false }, connected: false };
+export const emptyState: FactoryState = { fiveSTags: [], fiveSAudits: [], machines: [], reports: [], actions: [], settings: { green: 85, yellow: 65, metricApproved: false }, connected: false };
 export const sampleState = (): FactoryState => {
     const machines: Machine[] = departments.flatMap((d, i) => Array.from({ length: i === 0 ? 5 : 3 }, (_, j) => ({ id: `demo-${i}-${j}`, name: `${d.code}-${String(j + 1).padStart(2, '0')}`, department: d.id, status: (i === 0 && j === 2 ? 'stopped' : i === 2 && j === 1 ? 'maintenance' : 'running') as Machine['status'], x: 12 + (i % 2) * 47 + j % 3 * 11, y: 22 + Math.floor(i / 2) * 43 + Math.floor(j / 3) * 13, reference: ['YZL019AD', 'YZL028I05', 'MYC-204'][j % 3], line: 'Ligne 01' })));
     const reports: Report[] = machines.map((m, i) => ({ id: `demo-r-${i}`, date: today(), department: m.department, shift: 'Équipe du matin', machine_id: m.id, reference: m.reference!, status: 'validated', cells: {}, metrics: { planned: 12000, actual: 9300 + i * 130, defects: 130 + i * 7, loadMinutes: 480, runMinutes: 380 + i * 4, idealSeconds: 2.1, earnedMinutes: 370 + i * 6, laborMinutes: 480, losses: { 'Panne machine': 34 + i, 'Changement de série': 18, 'Attente matière': 12 }, defectCategories: { 'Rayures': 80 + i * 2, 'Points noirs': 35, 'Déformation': 15 } } }));

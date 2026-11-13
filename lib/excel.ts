@@ -1,3 +1,7 @@
+import {prepareReportForExcel,automaticFormulas} from './excel-autofill';
+import {calculateCells} from './cell-calculation';
+import type {Machine} from './domain';
+import {canonicalShift,shiftDefinition} from './shifts';
 import { unzipSync, zipSync, strFromU8, strToU8 } from 'fflate';
 import templateData from '@/data/templates.json';
 import { templateFiles } from '@/private/template-data';
@@ -54,7 +58,8 @@ function typedCell(dep: string, column: Column, address: string, value: string |
     return `<c${attr} t="inlineStr"><is><t xml:space="preserve">${escape(String(value))}</t></is></c>`;
 }
 function shiftedRow(row: string, from: number, to: number) { const offset = to - from; return row.replace(/\br="([A-Z]*)(\d+)"/g, (_, col, n) => `r="${col}${+n + offset}"`).replace(/<f([^>]*)>([\s\S]*?)<\/f>/g, (_, attr, formula) => `<f${attr}>${formula.replace(/(\$?[A-Z]{1,3})(\$?)(\d+)/g, (_: string, c: string, fixed: string, n: string) => c + fixed + (fixed ? n : +n + offset))}</f>`); }
-export function exportWorkbook(department: string, reports: Report[]) {
+export function exportWorkbook(department: string, reports: Report[], context:{machines?:Machine[];allReports?:Report[]}={}) {
+    reports=reports.map(report=>prepareReportForExcel(report,context.machines?.find(machine=>machine.id===report.machine_id),context.allReports||reports));
     const t = templates[department];
     if (!t)
         throw new Error('Département inconnu.');
@@ -72,17 +77,28 @@ export function exportWorkbook(department: string, reports: Report[]) {
     if (!base)
         throw new Error('La ligne de saisie du modèle est introuvable.');
     const allowed = new Map(t.columns.map(c => [c.key, c]));
-    const patch = (row: string, index: number, values: Record<string, string | number> | null) => {
+    const patch = (row: string, index: number, report:Report|null) => {
+        const values=report?.cells||null,overrides=report?automaticFormulas(report,index):{};
+        const baseOverrides=report?automaticFormulas(report,t.startRow):{};
+        const computed=report?.workshop?calculateCells(department,report.cells,baseOverrides):{} as Record<string,number|null>;
         const cells = cellsOf(row), byKey = new Map(cells.map(c => [c.key, c.xml]));
         for (const [key, col] of allowed) {
             const existing = byKey.get(key);
+            if(key in overrides){
+                let attributes=existing?.match(/^<c\b([^>]*?)(?:\/?>)/)?.[1]||(' r="'+key+index+'"');
+                attributes=attributes.replace(/\s+t="[^"]*"/g,'').replace(/\s+r="[^"]*"/,' r="'+key+index+'"').replace(/\/$/,'');
+                const formula=overrides[key];
+                const replacement=formula===null?'<c'+attributes+'/>':'<c'+attributes+'><f>'+escape(formula)+'</f></c>';
+                row=existing?row.replace(existing,replacement):row.replace('</row>',replacement+'</row>');
+                continue;
+            }
             if (col.calculated)
                 continue;
             // External lookup overrides are changed only when the user supplies a value.
             if (existing && /<f\b/.test(existing) && !col.overrideAllowed)
                 continue;
             const value = values?.[key] ?? '';
-            if (col.overrideAllowed && value === '')
+            if (col.overrideAllowed && value === '' && !report?.workshop)
                 continue;
             const replacement = typedCell(department, col, key + index, value, existing);
             if (existing)
@@ -90,16 +106,22 @@ export function exportWorkbook(department: string, reports: Report[]) {
             else
                 row = row.replace('</row>', replacement + '</row>');
         }
-        // Excel will regenerate caches; original formulas, styles, merges and print
-        // metadata are kept. Historical cumulative constants are not silently repaired.
-        row = row.replace(/<c\b[^>]*?(?:\/>|>[\s\S]*?<\/c>)/g, cell => /<f\b/.test(cell) ? cell.replace(/<v\b[^>]*>[\s\S]*?<\/v>/g, '') : cell);
+        // Native hourly reports use saved inputs for formulas and caches.
+        // Legacy imports retain original formulas; layout stays unchanged.
+        row = row.replace(/<c\b[^>]*?(?:\/>|>[\s\S]*?<\/c>)/g, cell => {
+            if(!/<f\b/.test(cell))return cell;
+            let clean=cell.replace(/<v\b[^>]*>[\s\S]*?<\/v>/g,'');
+            const key=cell.match(/r="([A-Z]+)\d+"/)?.[1],value=key?computed[key]:null;
+            if(report?.workshop&&value!==null&&value!==undefined&&Number.isFinite(value))clean=clean.replace('</c>','<v>'+value+'</v></c>');
+            return clean;
+        });
         return row;
     };
     for (const [index, row] of rows) {
         if (index < t.startRow || index >= t.startRow + limit)
             continue;
         const r = reports[index - t.startRow];
-        const patched = patch(row, index, r?.cells || null);
+        const patched = patch(row, index, r || null);
         if (patched !== row)
             xml = xml.replace(row, patched);
     }
@@ -108,7 +130,7 @@ export function exportWorkbook(department: string, reports: Report[]) {
         if (rows.has(index))
             continue;
         let clone = shiftedRow(base, t.startRow, index);
-        clone = patch(clone, index, reports[i].cells);
+        clone = patch(clone, index, reports[i]);
         let inserted = false;
         xml = xml.replace(/<row\b[^>]*\br="(\d+)"[^>]*?(?:\/>|>[\s\S]*?<\/row>)/g, (row, n) => { if (!inserted && +n > index) {
             inserted = true;
@@ -158,7 +180,9 @@ export function importWorkbook(department: string, bytes: Uint8Array, date: stri
             continue;
         if (rows.length >= 200)
             throw new Error('Import limité à 200 lignes. Divisez le fichier.');
-        rows.push({ id: crypto.randomUUID(), date, department, shift, machine_id: '', reference: String(cells[refKey] || ''), status: 'draft', cells, metrics: metricsFromCells(department, cells) });
+        const sourceShift=String(cells[department==='injection'||department==='metalisation'?'C':'B']||'');
+        const rowShift=canonicalShift(shiftDefinition(sourceShift)?sourceShift:shift);
+        rows.push({ id: crypto.randomUUID(), date, department, shift:rowShift, machine_id: '', reference: String(cells[refKey] || ''), status: 'draft', cells, metrics: metricsFromCells(department, cells) });
     }
     if (!rows.length)
         throw new Error('Aucune ligne de production avec numéro de machine trouvée.');

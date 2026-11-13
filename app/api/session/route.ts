@@ -1,14 +1,23 @@
 import { cookies } from 'next/headers';
-import { login, session, failure, checkOrigin } from '@/lib/server';
+import { login, session, failure, checkOrigin,localMode } from '@/lib/server';
+import {localCredentials} from '@/lib/local-store';
 const attempts = new Map<string, {
     count: number;
     until: number;
 }>();
-export async function GET() { return Response.json({ session: await session() }, { headers: { 'Cache-Control': 'no-store' } }); }
+export async function GET() {
+ const current=await session();
+ return Response.json({
+  session:current,
+  automatic:current?.automatic===true,
+  storage:localMode()?'local':'supabase',
+  localSetup:!current?.automatic&&localMode()&&process.env.NODE_ENV==='development'?await localCredentials().then(c=>({entryCode:c.ENTRY_ACCESS_CODE,meetingCode:c.MEETING_ACCESS_CODE})):null
+ },{headers:{'Cache-Control':'no-store'}});
+}
 export async function POST(request: Request) {
     try {
         checkOrigin(request);
-        const key = request.headers.get('cf-connecting-ip') || request.headers.get('oai-authenticated-user-id') || 'local';
+        const key = request.headers.get('x-forwarded-for')?.split(',')[0] || 'local';
         const now = Date.now();
         const a = attempts.get(key);
         if (a && a.until > now && a.count >= 8)

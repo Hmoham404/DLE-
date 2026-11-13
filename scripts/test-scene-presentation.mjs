@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import {mkdir} from 'node:fs/promises';
+import {pathToFileURL} from 'node:url';
+import {build} from 'esbuild';
+await mkdir('.sites-runtime/tests',{recursive:true});
+await build({entryPoints:['lib/scene-presentation.ts'],bundle:true,platform:'node',format:'esm',outfile:'.sites-runtime/tests/scene-presentation.mjs',tsconfig:'tsconfig.json'});
+const {scenePoint,sceneCounts,sceneDisplayMachines,sceneShortName}=await import(pathToFileURL(process.cwd()+'/.sites-runtime/tests/scene-presentation.mjs'));
+const fixture=Array.from({length:100},(_,index)=>({id:String(index),name:'MYC-01-INJ-'+String(index+1).padStart(4,'0'),department:'injection',x:16,y:82,status:'unknown'}));
+let passed=0;const test=(name,run)=>{run();passed++;console.log('PASS '+name);};
+test('saved XY positions map consistently into the 3D floor',()=>assert.deepEqual(scenePoint(fixture[0]),[-34/6,0,32/6]));
+test('unknown states remain unknown, never fabricated running machines',()=>assert.deepEqual(sceneCounts(fixture),{running:0,stopped:0,maintenance:0,idle:0,unknown:100}));
+test('actual state counts retain every record',()=>assert.deepEqual(sceneCounts([...fixture.slice(0,2),{...fixture[2],status:'running'},{...fixture[3],status:'maintenance'},{...fixture[4],status:'stopped'},{...fixture[5],status:'idle'}]),{running:1,stopped:1,maintenance:1,idle:1,unknown:2}));
+test('large views cap geometry and always bring selected units into view',()=>{const visible=sceneDisplayMachines(fixture,'99');assert.equal(visible.length,80);assert.equal(visible.at(-1).id,'99');assert.equal(fixture[79].id,'79');assert.equal(fixture.length,100);});
+test('small and empty scenes retain their complete contents',()=>{assert.deepEqual(sceneDisplayMachines([],'missing'),[]);assert.deepEqual(sceneDisplayMachines(fixture.slice(0,16),null),fixture.slice(0,16));});
+test('readable labels derive from real inventory identifiers',()=>assert.equal(sceneShortName(fixture[0]),'INJ · 0001'));
+console.log(JSON.stringify({passed}));
